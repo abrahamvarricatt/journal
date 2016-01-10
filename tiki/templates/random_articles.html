@@ -1,0 +1,19 @@
+<hr>
+<div class="container body-content">
+    <div class="row">
+        <h1>What to read next:</h1>
+    </div>
+</div>
+<hr>
+<div class="container body-content">
+    <div class="row">
+    {% for article in random_articles %}
+        <div class="col-sm-3">
+            <a href="{% url 'article' article.id %}">
+                <img src="{{ article.hero_image.url }}" height="75" width="75" alt="{{ article.hero_image.name }}">
+                <h3>{{ article.title }}</h3>
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+</div>
