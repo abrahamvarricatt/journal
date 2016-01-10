@@ -13,7 +13,9 @@ def deploy():
     _update_settings(source_folder, env.host)
     _update_virtualenv(source_folder)
     _update_static_files(source_folder)
+    _delete_database_if_exists(source_folder)
     _update_database(source_folder)
+    _add_superuser(source_folder)
 
 
 def _create_directory_structure_if_necessary(site_folder):
@@ -60,9 +62,22 @@ def _update_static_files(source_folder):
     ))
 
 
+def _delete_database_if_exists(source_folder):
+    run('cd %s && rm -rf ../database/db.sqlite3 || true' % (
+        source_folder
+    ))
+
+
 def _update_database(source_folder):
     run('cd %s && ../virtualenv/bin/python manage.py migrate --noinput' % (
         source_folder,
     ))
 
 
+def _add_superuser(source_folder):
+    run('cd %s && echo "from django.contrib.auth.models import User; '
+        'User.objects.create_superuser(\'admin\', '
+        '\'admin@example.com\', \'adminpass\')" | ../virtualenv/bin/python '
+        'manage.py shell' % (
+            source_folder,
+        ))
