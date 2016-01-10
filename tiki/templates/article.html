@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block main_section %}
+    {% if extra_image %}
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <img src="{{ extra_image.url }}" height="200" width="800" alt="{{ extra_image.name }}">
+            </div>
+        </div>
+        <br/>
+    {% endif %}
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-1">
+            <h1>{{ title }} <small> by {{ author }}</small></h1>
+            <h5>{{ pub_date }}, <small>{{ category }}</small></h5>
+        </div>
+        <div class="col-sm-4">
+            <img src="{{ hero_image.url }}" height="200" width="200" alt="{{ hero_image.name }}">
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1"><p>{{ body_text }}</p></div>
+    </div>
+{% endblock %}
