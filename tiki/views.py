@@ -1,14 +1,25 @@
-from django.http import HttpResponse
 from django.http import Http404
 from django.shortcuts import render
-from django.template import RequestContext
-from time import strftime
 from tiki.models import Article
 
 
 def index(request):
-    current_time = strftime('%Y-%m-%d %H:%M:%S')
-    return HttpResponse('Hello World! <br/> Now=' + str(current_time))
+    # Get list of recent articles
+    article_list = Article.objects.order_by('-pub_date')[:4]
+    if not article_list:
+        # No article in DB, show error message
+        context = {}
+        return render(request,
+                      'no_article.html',
+                      context)
+    else:
+        # Show article list page
+        context = {
+            'articles': article_list
+        }
+        return render(request,
+                      'article_list.html',
+                      context)
 
 
 def article(request, article_id):
