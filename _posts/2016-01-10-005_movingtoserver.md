@@ -1,8 +1,9 @@
 ---
-published: false
+published: true
 layout: post
 title: Moving To Server
 ---
+
 
 I tried copying the scripts I used for my TDD project over here. For the most part, they look alright. But then I encountered an odd hitch around the fabric dependency. 
 
@@ -19,5 +20,3 @@ Hmm.. almost got it. There was an error with activating the gunicorn service, bu
 And now I'm getting 502 gateway errors from nginx. This took a bit of debugging. Running over the nginx logs .. etc. It turns out, my gunicorn process hadn't started properly. when I copied over my deployment scripts, I forget to reset the wsgi application path. After correcting it, the server is now up and running. :)
 
 [http://journal.abraham-v.com/]()
-
-
