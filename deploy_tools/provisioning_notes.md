@@ -11,7 +11,7 @@ Provisioning a new site
 
 eg, on Ubunutu:
 
-    sudo apt-get install nginx git
+    sudo apt-get install nginx git python-dev
     sudo pip install virtualenv
 
 ## Nginx Virtual Host config
