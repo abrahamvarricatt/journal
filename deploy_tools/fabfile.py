@@ -16,10 +16,11 @@ def deploy():
     _delete_database_if_exists(source_folder)
     _update_database(source_folder)
     _add_superuser(source_folder)
+    _empty_old_media_files(source_folder)
 
 
 def _create_directory_structure_if_necessary(site_folder):
-    for subfolder in ('database', 'static', 'virtualenv', 'source'):
+    for subfolder in ('database', 'static', 'media', 'virtualenv', 'source'):
         run('mkdir -p %s/%s' % (site_folder, subfolder))
 
 
@@ -81,3 +82,10 @@ def _add_superuser(source_folder):
         'manage.py shell' % (
             source_folder,
         ))
+
+
+def _empty_old_media_files(source_folder):
+    run('cd %s && rm -rf ../media/* || true' % (
+        source_folder
+    ))
+
