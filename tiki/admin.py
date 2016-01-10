@@ -1,5 +1,5 @@
 from django.contrib import admin
-from tiki.models import Document
+from tiki.models import Article
 
-admin.site.register(Document)
+admin.site.register(Article)
 
