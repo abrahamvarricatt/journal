@@ -6,6 +6,6 @@ from django.conf.urls.static import static
 urlpatterns = patterns('',
     url(r'^tiki/', include('tiki.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', include('tiki.urls')),  # defaults
+    url(r'^', include('tiki.urls')),  # defaults
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
