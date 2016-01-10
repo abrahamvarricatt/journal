@@ -1,8 +1,9 @@
 ---
-published: false
+published: true
 layout: post
 title: Basic Django project
 ---
+
 
 I find myself wondering what exactly does a 'bare bones basic django project' mean? I've got enough code to get runserver up and running on my local system without issues. But there's no django app installed. Does it count?
 
