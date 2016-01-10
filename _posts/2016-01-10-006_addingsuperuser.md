@@ -1,8 +1,9 @@
 ---
-published: false
+published: true
 layout: post
 title: Adding a SuperUser
 ---
+
 
 Now that the site is up and running, its time to figure out how to add a superuser account to access the admin page. On the good side, the admin login page itself is accessible over the internet. 
 
@@ -20,5 +21,4 @@ Problem is, I can't run that twice on the same database. It gives me an error ab
 
 Yes, I've scripted it like that. Delete database, migrate, then add user via shell. (ref: http://superuser.com/a/887349/147726 , for deleting if file not present )
 
-Caveat: I'm hard-coding the superuser credentials into my fabfile which I'm going to upload to github. Not really something I would do on a production system - need to use another way to pass in those values. But should do for this deployment. 
-
+Caveat: I'm hard-coding the superuser credentials into my fabfile which I'm going to upload to github. Not really something I would do on a production system - need to use another way to pass in those values. But should do for this deployment.
