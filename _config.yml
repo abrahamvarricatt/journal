@@ -1,0 +1,22 @@
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+relative_permalinks: true
+
+# Setup
+title:               'Journal Source'
+tagline:             'Project notes'
+description:         'Thoughts on my mind as I publish a django site to serve loren-ipsum articles.'
+url:                 'http://abrahamvarricatt.github.io'
+baseurl:             '/journal'
+paginate:            5
+
+# About/contact
+author:
+  name:              Abraham V
+  url:               http://abrahamvarricatt.github.io
+  email:             no_email_here@example.com
+
+# Custom vars
+version:             1.0.0
